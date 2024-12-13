@@ -35,7 +35,7 @@ const NavBar = () => {
     </>
 
     return (
-        <div className="navbar bg-gradient-to-r from-lime-500 via-green-400 to-lime-500 text-white p-5 shadow-lg">
+        <div className="navbar bg-gradient-to-r from-lime-500 via-green-400 to-lime-500 text-white p-5 shadow-lg py-10">
             <div className="navbar-start">
                 {/* Dropdown for mobile */}
                 <div className="dropdown">
@@ -92,15 +92,15 @@ const NavBar = () => {
                                 alt={`${user.displayName || "User"}'s Profile`}
                             />
                             {/* Tooltip */}
-                            <div className="absolute  left-1/2 transform -translate-x-1/2  hidden group-hover:block bg-gray-800 text-white text-sm rounded-lg p-3">
+                            <div className="absolute w-32 bottom-3 transform -translate-x-1/2  hidden group-hover:block bg-gray-800 text-white text-sm rounded-lg p-3">
                                 {user.displayName || "User"}
 
                                 <button
                                     onClick={handleSignOut}
-                                    className="btn btn-sm ml-3 mt-2 bg-white text-lime-600 hover:bg-gray-100"
+                                    className="btn btn-sm mt-2 ml-1 bg-white text-lime-600 hover:bg-gray-100"
                                     aria-label="Sign Out"
                                 >
-                                    <FaSignOutAlt />
+                                    <FaSignOutAlt/>
                                     
                                 </button>
                             </div>
