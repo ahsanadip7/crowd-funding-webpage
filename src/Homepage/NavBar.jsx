@@ -76,7 +76,7 @@ const NavBar = () => {
 
                 {/* Logo */}
                 <a className="btn btn-ghost text-2xl font-bold">
-                   IndiGo
+                CrowdCube
                 </a>
             </div>
 

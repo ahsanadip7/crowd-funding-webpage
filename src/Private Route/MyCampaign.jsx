@@ -116,7 +116,9 @@ const MyCampaign = () => {
             ) : (
                 <div className="text-center py-10">
                     <p className="text-gray-600 text-lg">You have no campaigns yet.</p>
+                    <Link to='/addCampaign'>
                     <button className="btn btn-primary mt-4">Create New Campaign</button>
+                    </Link>
                 </div>
             )}
         </div>

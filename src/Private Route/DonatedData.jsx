@@ -1,9 +1,12 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider';
 
 const DonatedData = () => {
-    const donatedData = useLoaderData();
-    console.log(donatedData);
+    const { user } = useContext(AuthContext)
+    const donation = useLoaderData()
+    const userDonation = donation.filter(campaign => campaign.email === user?.email);
+    console.log(userDonation);
     return (
         <div>
 
@@ -16,60 +19,72 @@ const DonatedData = () => {
                 </div>
             </div>
 
-            <div className="max-w-5xl mx-auto my-10 px-4">
-                <h1 className="text-3xl font-bold text-gray-800 mb-8">My donations : {donatedData.length}</h1>
-
-                {donatedData.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {donatedData.map((donation, index) => (
-                            <div
-                                key={index}
-                                className="card bg-white shadow-md hover:shadow-xl transition-shadow rounded-lg overflow-hidden border border-gray-200"
-                            >
-                                {/* donation Thumbnail */}
-                                <img
-                                    src={donation.thumbnail}
-                                    alt={donation.title}
-                                    className="w-full h-40 object-cover"
-                                />
-
-                                {/* donation Details */}
-                                <div className="p-4">
-                                    <h2 className="text-xl font-bold text-lime-600 mb-2">
-                                        {donation.title}
-                                    </h2>
-                                    <p className="text-sm text-gray-700 line-clamp-3 mb-3">
-                                        {donation.description}
+            {/* Campaigns Section */}
+        <div className="max-w-5xl mx-auto my-10 px-4">
+            <h1 className="text-3xl font-bold text-gray-800 mb-8">My Donation : {userDonation.length}</h1>
+    
+            {userDonation.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {userDonation.map((campaign, index) => (
+                        <div
+                            key={index}
+                            className="card bg-white shadow-md hover:shadow-xl transition-shadow rounded-lg overflow-hidden border border-gray-200"
+                        >
+                            {/* Campaign Thumbnail */}
+                            <img
+                                src={campaign.thumbnail}
+                                alt={campaign.title}
+                                className="w-full h-40 object-cover"
+                            />
+    
+                            {/* Campaign Details */}
+                            <div className="p-4">
+                                <h2 className="text-xl font-bold text-lime-600 mb-2">
+                                    {campaign.title}
+                                </h2>
+                                <p className="text-sm text-gray-700 line-clamp-3 mb-3">
+                                    {campaign.description}
+                                </p>
+                                <div className="text-sm text-gray-600 mb-2">
+                                    <p>
+                                        <span className="font-semibold">Type:</span>{" "}
+                                        {campaign.type}
                                     </p>
-                                    <div className="text-sm text-gray-600 mb-2">
-                                        <p>
-                                            <span className="font-semibold">Type:</span>{" "}
-                                            {donation.type}
-                                        </p>
-                                        <p>
-                                            <span className="font-semibold">Min Donation:</span>{" "}
-                                            ${donation.minDonation}
-                                        </p>
-                                        <p>
-                                            <span className="font-semibold">Deadline:</span>{" "}
-                                            {donation.deadline}
-                                        </p>
-                                    </div>
-                                    <div className='flex gap-5'>
+                                    <p>
+                                        <span className="font-semibold">Min Donation:</span>{" "}
+                                        ${campaign.minDonation}
+                                    </p>
+                                    <p>
+                                        <span className="font-semibold">Deadline:</span>{" "}
+                                        {campaign.deadline}
+                                    </p>
+                                </div>
+                                <div className='flex gap-5'>
+                                <Link to={`/update/${campaign._id}`}>
+                                <button className="btn btn-outline btn-sm text-lime-600 border-lime-600 hover:bg-lime-600 hover:text-white mt-3">
+                                    Update
+                                </button>
+                                </Link>
 
-                                    </div>
+                                <button 
+                                 onClick={()=> handleDelete(campaign._id)}
+                                className="btn btn-outline btn-sm text-red-600 border-red-600 hover:bg-red-600 hover:text-white mt-3">
+                                    Delete
+                                </button>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                ) : (
-                    <div className="text-center py-10">
-                        <p className="text-gray-600 text-lg">You have no donations yet.</p>
-                        <button className="btn btn-primary mt-4">Create New donation</button>
-                    </div>
-                )}
-            </div>
-
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className="text-center py-10">
+                    <p className="text-gray-600 text-lg">You have no donation yet.</p>
+                    <Link to='/addCampaign'>
+                    <button className="btn btn-primary mt-4">Create New Donation</button>
+                    </Link>
+                </div>
+            )}
+        </div>
 
         </div>
     );
