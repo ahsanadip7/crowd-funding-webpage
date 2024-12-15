@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../AuthProvider';
 
 const UpdateCamp = () => {
+    const {user} = useContext(AuthContext)
+    const userDetails = {
+        email: `${user?.email}`,
+        name: `${user?.displayName}`,
+    };
     const campaign = useLoaderData();
     const {_id,deadline,type, description,minDonation,thumbnail,title} =campaign
     console.log(campaign,_id);
@@ -20,7 +26,9 @@ const UpdateCamp = () => {
         const minDonation = form.minDonation.value;
         const thumbnail = form.thumbnail.value;
         const title = form.title.value;
-        const updatedCampaign = {deadline,type, description,minDonation,thumbnail,title}
+        const email = form.email.value;
+        const name = form.name.value;
+        const updatedCampaign = {deadline,type, description,minDonation,thumbnail,title,email,name}
         console.log(updatedCampaign);
     
         fetch(`http://localhost:5000/campaign/${_id}`, {
@@ -135,6 +143,30 @@ const UpdateCamp = () => {
                             defaultValue={deadline}
                             className="input input-bordered w-full"
                             required
+                        />
+                    </div>
+
+                     {/* User Email (Read Only) */}
+                     <div>
+                        <label className="block font-medium mb-2">User Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={userDetails.email}
+                            readOnly
+                            className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
+                        />
+                    </div>
+
+                    {/* User Name (Read Only) */}
+                    <div>
+                        <label className="block font-medium mb-2">User Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={userDetails.name}
+                            readOnly
+                            className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
                         />
                     </div>
 

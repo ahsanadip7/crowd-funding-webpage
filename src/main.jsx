@@ -19,6 +19,8 @@ import AllCampaign from './Private Route/AllCampaign/AllCampaign.jsx';
 import MyCampaign from './Private Route/MyCampaign.jsx';
 import Details from './Private Route/AllCampaign/Details.jsx';
 import UpdateCamp from './Private Route/UpdateCamp.jsx';
+import DonatedData from './Private Route/DonatedData.jsx';
+import HowToHelp from './Homepage/HowToHelp.jsx';
 
 
 
@@ -67,6 +69,15 @@ const router = createBrowserRouter([
         path: 'update/:id',
         element: <UpdateCamp></UpdateCamp>,
         loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+      },
+      {
+        path: 'donatedData',
+        element: <DonatedData></DonatedData>,
+        loader: () => fetch('http://localhost:5000/donatedCollection')
+      },
+      {
+        path:'howToHelp',
+        element: <HowToHelp></HowToHelp>
       }
     ]
   }

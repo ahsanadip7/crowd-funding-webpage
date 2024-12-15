@@ -23,19 +23,26 @@ const NavBar = () => {
         <NavLink to='/'><li>Home</li></NavLink>
         <NavLink to='/campaigns'><li>All Campaigns</li></NavLink>
         {
-            user && <>
+            user ? ( <>
             <NavLink to='/addCampaign'><li>Add New Campaign</li></NavLink>
             <NavLink to='/myCampaign'><li>My Campaign</li></NavLink>
-            <NavLink to='/dashboard'><li>My Donations</li></NavLink>
+            <NavLink to='/donatedData'><li>My Donations</li></NavLink>
             </>
+            ) : (
+                <>
+            <NavLink to='/login'><li>Add New Campaign</li></NavLink>
+            <NavLink to='/login'><li>My Campaign</li></NavLink>
+            <NavLink to='/login'><li>My Donations</li></NavLink>
+            </>
+            )
         }
 
-        <NavLink to='/how-to-help'><li>“How to Help”</li></NavLink>
+        <NavLink to='/howToHelp'><li>“How to Help”</li></NavLink>
 
     </>
 
     return (
-        <div className="navbar bg-gradient-to-r from-lime-500 via-green-400 to-lime-500 text-white p-5 shadow-lg py-10">
+        <div className="navbar bg-gradient-to-r from-lime-600 via-emerald-500 to-cyan-600 text-white p-5 shadow-lg py-10">
             <div className="navbar-start">
                 {/* Dropdown for mobile */}
                 <div className="dropdown">
