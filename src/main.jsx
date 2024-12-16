@@ -34,12 +34,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
-        loader: () => fetch('http://localhost:5000/campaign'),
+        loader: () => fetch('https://assignment-10-server-site-ten.vercel.app/campaign'),
       },
       {
         path: '/campaigns',
         element: <AllCampaign></AllCampaign>,
-        loader: () => fetch('http://localhost:5000/campaign')
+        loader: () => fetch('https://assignment-10-server-site-ten.vercel.app/campaign')
       },
       {
         path: 'login',
@@ -58,22 +58,22 @@ const router = createBrowserRouter([
       {
         path: 'myCampaign',
         element: <MyCampaign></MyCampaign>,
-        loader: () => fetch('http://localhost:5000/campaign')
+        loader: () => fetch('https://assignment-10-server-site-ten.vercel.app/campaign')
       },
       {
         path: 'details/:id',
         element: <Details></Details>,
-        loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-server-site-ten.vercel.app/campaign/${params.id}`)
       },
       {
         path: 'update/:id',
         element: <UpdateCamp></UpdateCamp>,
-        loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-server-site-ten.vercel.app/campaign/${params.id}`)
       },
       {
         path: 'donatedData',
         element: <DonatedData></DonatedData>,
-        loader: () => fetch('http://localhost:5000/donatedCollection')
+        loader: () => fetch('https://assignment-10-server-site-ten.vercel.app/donatedCollection')
       },
       {
         path:'howToHelp',

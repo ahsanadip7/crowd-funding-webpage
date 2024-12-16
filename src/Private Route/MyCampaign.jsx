@@ -23,7 +23,7 @@ const MyCampaign = () => {
             if (result.isConfirmed) {
               
 
-            fetch(`http://localhost:5000/campaign/${_id}`, {
+            fetch(`https://assignment-10-server-site-ten.vercel.app/campaign/${_id}`, {
                 method : "DELETE"
             })
             .then(res => res.json())

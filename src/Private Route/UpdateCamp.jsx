@@ -9,7 +9,7 @@ const UpdateCamp = () => {
     const userDetails = {
         email: `${user?.email}`,
         name: `${user?.displayName}`,
-    };
+    };s
     const campaign = useLoaderData();
     const {_id,deadline,type, description,minDonation,thumbnail,title} =campaign
     console.log(campaign,_id);
@@ -31,7 +31,7 @@ const UpdateCamp = () => {
         const updatedCampaign = {deadline,type, description,minDonation,thumbnail,title,email,name}
         console.log(updatedCampaign);
     
-        fetch(`http://localhost:5000/campaign/${_id}`, {
+        fetch(`https://assignment-10-server-site-ten.vercel.app/campaign/${_id}`, {
             method: 'PUT',
             headers : {
                 "content-type" : "application/json"

@@ -16,7 +16,7 @@ const Details = () => {
         const addDonation = { thumbnail, type, title, description, minDonation, deadline, email, displayName }
         console.log(addDonation);
 
-        fetch('http://localhost:5000/donatedCollection', {
+        fetch('https://assignment-10-server-site-ten.vercel.app/donatedCollection', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

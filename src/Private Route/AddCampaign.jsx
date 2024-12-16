@@ -38,7 +38,7 @@ const AddCampaign = () => {
         const name = form.name.value;
         const addCampaign = { thumbnail, type, title, description, minDonation, deadline, email, name };
 
-        fetch('http://localhost:5000/campaign', {
+        fetch('https://assignment-10-server-site-ten.vercel.app/campaign', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
