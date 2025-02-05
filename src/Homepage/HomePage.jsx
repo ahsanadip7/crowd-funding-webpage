@@ -16,7 +16,7 @@ const HomePage = () => {
             <div className="h-48 flex flex-col items-center justify-center text-center border-b border-gray-300">
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-800">Ongoing Campaigns</h1>
                 <p className="mt-2 text-lg md:text-xl text-gray-600">
-                    Explore and support campaigns making a difference!
+                    Explore and support campaigns making a difference!!
                 </p>
             </div>
 
