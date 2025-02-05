@@ -26,50 +26,30 @@ The project is built using the following technologies:
 
 ---
 
-## 🖥️ Installation & Setup
 
-To get this project up and running on your local machine, follow these steps:
+## 📂 Installation & Setup
 
-### 1. Clone the repository:
-```sh
-git clone https://github.com/ahsanadip7/Crowd-Cube.git
-cd Crowd-Cube
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/ahsanadip7/Crowd-Cube.git
+   cd online-group-study-website
+
 2. Install dependencies:
-sh
-Copy
-Edit
+
 npm install
+
 3. Run the development server:
-sh
-Copy
-Edit
-npm start
-Now, open your browser and go to http://localhost:3000 to see the app in action.
 
-📂 Folder Structure
-Here's a breakdown of the key project files and folders:
+npm run dev
 
-src/ – Contains the main code of the website
-components/ – Reusable UI components
-pages/ – Different pages like Home, Project Details, Dashboard
-services/ – API services to interact with Firebase or any back-end
-public/ – Static files like images, icons, etc.
+4. Open in Browser:
+Open http://localhost:5173 in your browser.
+
+
 ## 🔗 Live Demo
-
-You can check out the live version of **Crowd Cube** at:  
-[**View Online Demo**](https://assignment-no-10-17056.web.app/)
-
-🧑‍🤝‍🧑 Contributing
-We welcome contributions! If you'd like to help improve the platform, feel free to fork the repository, create a new branch, and submit a pull request.
-
-Steps:
-Fork this repository
-Create a new branch (git checkout -b feature-name)
-Commit your changes (git commit -m 'Add some feature')
-Push to the branch (git push origin feature-name)
-Submit a pull request
-💡 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+- [View Online](https://assignment-no-10-17056.web.app/)
+📌 Contributing
+Contributions are welcome! If you'd like to improve the platform, feel free to fork the repo and submit a pull request.
 
 🤝 Connect with Us
 Email: ahsanadip7@gmail.com
